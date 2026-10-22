@@ -26,7 +26,7 @@ namespace ProjetoLogin.Repositories
                 usuario.SenhaHash = _passwordHasher.HashPassword(usuario, senha);
                 using var conexao = new MySqlConnection(_connectionString);
                 await conexao.OpenAsync();
-                var query = "INSERT INTO usuarios (Nome,Email,SenhaHash) VALUES(@nome,@email,@senhahash";
+                var query = "INSERT INTO usuarios (Nome,Email,SenhaHash) VALUES(@nome,@email,@senhahash)";
                 using var cmd = new MySqlCommand(query, conexao);
 
                 cmd.Parameters.AddWithValue("@nome", usuario.Nome);
